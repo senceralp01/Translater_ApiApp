@@ -1,5 +1,9 @@
 const fromLang = document.getElementById("from-lang");
 const toLang = document.getElementById("to-lang");
+const btnTranslate = document.querySelector(".btnTranslate");
+const fromText = document.getElementById("from-text");
+const toText = document.getElementById("to-text");
+
 
 for(let lang in languages){
     // console.log(lang, languages[lang]);
@@ -9,5 +13,19 @@ for(let lang in languages){
 
     fromLang.value = "tr-TR";
     toLang.value = "en-GB"
-
 }
+
+btnTranslate.addEventListener("click", () => {
+    let text = fromText.value;
+    let from = fromLang.value;
+    let to = toLang.value;
+    const url = `https://api.mymemory.translated.net/get?q=${text}&langpair=${from}|${to}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            toText.value = data.responseData.translatedText;
+        });
+
+});
+
+//https://api.mymemory.translated.net/get?q=Hello World!&langpair=en|it

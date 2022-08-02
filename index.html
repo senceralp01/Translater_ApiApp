@@ -7,7 +7,15 @@
     <title>Translater App</title>
 </head>
 <body>
-    <select id="from-lang"></select><select id="to-lang"></select>
+    <select id="from-lang"></select>
+    <select id="to-lang"></select>
+
+    <div class="text-controls">
+        <textarea id="from-text" class="from-text" placeholder="Enter text"></textarea>
+        <textarea id="to-text" class="to-text" placeholder="Translation" readonly disabled></textarea>
+    </div>
+
+    <button class="btnTranslate">Translate</button>
 
     <script src="languages.js"></script>
     <script src="script.js"></script>
