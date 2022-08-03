@@ -3,7 +3,7 @@ const toLang = document.getElementById("to-lang");
 const btnTranslate = document.querySelector(".btnTranslate");
 const fromText = document.getElementById("from-text");
 const toText = document.getElementById("to-text");
-
+const exchange = document.querySelector(".exchange");
 
 for(let lang in languages){
     // console.log(lang, languages[lang]);
@@ -28,4 +28,12 @@ btnTranslate.addEventListener("click", () => {
 
 });
 
-//https://api.mymemory.translated.net/get?q=Hello World!&langpair=en|it
+exchange.addEventListener("click", () => {
+    let text = fromText.value;
+    fromText.value = toText.value;
+    toText.value = text;
+
+    let lang = fromLang.value;
+    fromLang.value = toLang.value;
+    toLang.value = lang;
+});
