@@ -1,4 +1,4 @@
-# Translator
+# Translator App
 
 The goal of the project is learn how to perform queries and get datas from a language API provider.
 
